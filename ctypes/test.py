@@ -14,7 +14,7 @@ def main():
     img_pointer = lib.get_color_bar_image(refHeight, refWidth)
 
     if img_pointer is not None:
-        print('Cからちゃんとポインタが戻ってきた')
+        print('Cからちゃんとポインタが戻ってきました')
         width = refWidth.value
         height = refHeight.value
 
@@ -33,11 +33,15 @@ def main():
             Image.frombytes('L', (width, height), blue_data)
         ))
 
-        # 画像ファイルとして保存
         #img.save("output.jpg")
         #print(f'JPEGファイルで出力したよ(画像サイズ : {width} x {height})')
-        img.save("output.tiff")
-        print(f'TIFFファイルで出力したよ(画像サイズ : {width} x {height})')
+        #img.save("output.tiff")
+        #print(f'TIFFファイルで出力したよ(画像サイズ : {width} x {height})')
+
+        # 画像ファイルとして保存
+        format = input("出力したいフォーマットの拡張子を入力して下さい: ")
+        img.save(f"output.{format}")
+        print(f'{format}ファイルで出力しました(画像サイズ : {width} x {height})')
         
 if __name__ == "__main__":
     main()
