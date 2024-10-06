@@ -1,8 +1,10 @@
 # _*_ coding: utf-8 -*-
+# test.py : C言語で記述したライブラリ関数を呼び出すPythonサンプルプログラム
+# 
 import ctypes
 from PIL import Image
 
-lib = ctypes.cdll.LoadLibrary("./libtest.so")
+lib = ctypes.cdll.LoadLibrary("./libcolorbar.so")
 
 lib.get_color_bar_image.argtypes = [ctypes.POINTER(ctypes.c_int), ctypes.POINTER(ctypes.c_int)]
 lib.get_color_bar_image.restype = ctypes.c_void_p
